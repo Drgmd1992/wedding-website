@@ -82,6 +82,7 @@ a {
 .app-shell::after {
   content: "";
   position: absolute;
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -110,6 +111,127 @@ a {
     linear-gradient(106deg, transparent 0 54%, rgba(47, 109, 88, 0.72) 55% 60%, transparent 61%);
   opacity: 0.94;
   transform: rotate(10deg);
+}
+
+.hawaii-art,
+.hawaii-art span {
+  position: absolute;
+  pointer-events: none;
+}
+
+.hawaii-art {
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.sun {
+  width: 88px;
+  height: 88px;
+  right: 38px;
+  top: 94px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 241, 194, 0.96) 0 58%, rgba(255, 206, 132, 0.3) 59% 72%, transparent 73%);
+  filter: blur(0.2px);
+  opacity: 0.78;
+}
+
+.diamond-head {
+  left: 0;
+  right: 0;
+  top: 265px;
+  height: 148px;
+  background:
+    linear-gradient(148deg, transparent 0 16%, rgba(58, 96, 82, 0.72) 17% 36%, transparent 37%),
+    linear-gradient(158deg, transparent 0 40%, rgba(33, 80, 76, 0.68) 41% 62%, transparent 63%),
+    linear-gradient(170deg, transparent 0 56%, rgba(15, 71, 83, 0.54) 57% 72%, transparent 73%);
+  opacity: 0.58;
+}
+
+.shoreline {
+  left: -18%;
+  right: -18%;
+  top: 438px;
+  height: 238px;
+  border-radius: 50% 50% 0 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.92) 0 7%, transparent 8%),
+    repeating-radial-gradient(ellipse at 52% 8%, rgba(255, 255, 255, 0.42) 0 5px, rgba(129, 210, 207, 0.2) 6px 13px, transparent 14px 27px),
+    linear-gradient(180deg, rgba(129, 210, 207, 0.36), rgba(255, 246, 229, 0.78));
+  transform: rotate(-3deg);
+  opacity: 0.9;
+}
+
+.palm {
+  width: 170px;
+  height: 210px;
+  opacity: 0.56;
+}
+
+.palm::before,
+.palm::after {
+  content: "";
+  position: absolute;
+}
+
+.palm::before {
+  width: 12px;
+  height: 170px;
+  left: 78px;
+  top: 34px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(54, 112, 80, 0.9), rgba(25, 82, 72, 0.6));
+  transform: rotate(12deg);
+}
+
+.palm::after {
+  inset: 0;
+  background:
+    linear-gradient(16deg, transparent 0 43%, rgba(54, 126, 87, 0.86) 44% 49%, transparent 50%),
+    linear-gradient(42deg, transparent 0 43%, rgba(65, 143, 95, 0.74) 44% 49%, transparent 50%),
+    linear-gradient(72deg, transparent 0 43%, rgba(79, 155, 105, 0.72) 44% 49%, transparent 50%),
+    linear-gradient(112deg, transparent 0 43%, rgba(68, 138, 94, 0.72) 44% 49%, transparent 50%),
+    linear-gradient(145deg, transparent 0 43%, rgba(50, 111, 81, 0.82) 44% 49%, transparent 50%);
+  transform-origin: 50% 36%;
+}
+
+.palm--left {
+  left: -58px;
+  top: 78px;
+  transform: rotate(-24deg) scale(1.08);
+}
+
+.palm--right {
+  right: -54px;
+  top: 118px;
+  transform: rotate(30deg) scale(1);
+}
+
+.flower {
+  width: 168px;
+  height: 168px;
+  background:
+    radial-gradient(circle at 42% 42%, #ffbd78 0 9px, transparent 10px),
+    radial-gradient(ellipse at 42% 16%, rgba(239, 133, 110, 0.96) 0 18px, transparent 19px),
+    radial-gradient(ellipse at 66% 36%, rgba(235, 111, 98, 0.92) 0 21px, transparent 22px),
+    radial-gradient(ellipse at 55% 65%, rgba(246, 157, 132, 0.92) 0 22px, transparent 23px),
+    radial-gradient(ellipse at 22% 58%, rgba(234, 118, 108, 0.9) 0 20px, transparent 21px),
+    radial-gradient(circle at 76% 70%, #fff4d8 0 16px, transparent 17px),
+    radial-gradient(circle at 85% 62%, #fff4d8 0 14px, transparent 15px),
+    linear-gradient(34deg, transparent 0 44%, rgba(47, 109, 88, 0.82) 45% 51%, transparent 52%);
+  opacity: 0.9;
+}
+
+.flower--left {
+  left: -56px;
+  bottom: 122px;
+  transform: rotate(-12deg);
+}
+
+.flower--right {
+  right: -46px;
+  bottom: 34px;
+  transform: rotate(18deg) scale(1.08);
 }
 
 .app-shell .countdown-band {
@@ -492,6 +614,16 @@ h2 {
         <span class="brand">G &amp; N</span>
         <span class="locale">Waikiki, Hawaii</span>
       </nav>
+
+      <div class="hawaii-art" aria-hidden="true">
+        <span class="sun"></span>
+        <span class="diamond-head"></span>
+        <span class="shoreline"></span>
+        <span class="palm palm--left"></span>
+        <span class="palm palm--right"></span>
+        <span class="flower flower--left"></span>
+        <span class="flower flower--right"></span>
+      </div>
 
       <section class="hero-card" aria-labelledby="weddingTitle">
         <p class="eyebrow">Waikiki wedding</p>
