@@ -468,6 +468,10 @@ h2 {
   line-height: 1.55;
 }
 
+.section-copy--dark {
+  color: var(--muted);
+}
+
 .section--surf {
   color: var(--ink);
   background: rgba(255, 250, 241, 0.16);
@@ -476,6 +480,68 @@ h2 {
 .section--surf h2 {
   color: var(--ocean);
   margin-bottom: 0;
+}
+
+.invitation-card {
+  display: grid;
+  gap: 18px;
+}
+
+.invitation-lede {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.invitation-details {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.invitation-details div {
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 8px;
+  background: rgba(255, 250, 241, 0.16);
+  -webkit-backdrop-filter: blur(10px) saturate(1.16);
+  backdrop-filter: blur(10px) saturate(1.16);
+}
+
+.invitation-details dt {
+  margin-bottom: 5px;
+  color: var(--hibiscus);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.invitation-details dd {
+  margin: 0;
+  color: var(--ocean);
+  font-weight: 850;
+  line-height: 1.35;
+}
+
+.rsvp-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rsvp-list li {
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 8px;
+  background: rgba(255, 250, 241, 0.16);
+  color: var(--ocean);
+  font-weight: 800;
+  -webkit-backdrop-filter: blur(10px) saturate(1.16);
+  backdrop-filter: blur(10px) saturate(1.16);
 }
 
 .save-card {
@@ -646,12 +712,12 @@ h2 {
       <section class="hero-card" aria-labelledby="weddingTitle">
         <p class="eyebrow">Waikiki wedding</p>
         <h1 id="weddingTitle">Garrison &amp; Nhuna</h1>
-        <p class="date-line">Wednesday, November 18, 2026</p>
+        <p class="date-line">Wednesday, November 18, 2026 at 5:30 PM</p>
         <p class="place-line">Moana Surfrider Resort<br />Honolulu, Hawaii</p>
       </section>
 
       <section class="countdown-band" aria-label="Live wedding countdown">
-        <p>Countdown to 6:00 PM in Waikiki</p>
+        <p>Countdown to 5:30 PM in Waikiki</p>
         <div class="countdown-grid" id="countdown">
           <span class="countdown-unit">
             <strong id="countdownDays">--</strong>
@@ -681,7 +747,7 @@ h2 {
         <a class="menu-button" href="#invitation">
           <span>02</span>
           <strong>Invitation</strong>
-          <small>Coming soon</small>
+          <small>Wedding ceremony and RSVP</small>
         </a>
         <a class="menu-button" href="#important-details">
           <span>03</span>
@@ -702,7 +768,43 @@ h2 {
 
       <section class="section section--surf" id="invitation">
         <p class="section-kicker">Invitation</p>
-        <h2>Coming soon</h2>
+        <h2>You're invited</h2>
+        <div class="invitation-card">
+          <p class="invitation-lede">
+            Together with their families, Dr. Garrison Davis and Dr. Nhuna Ha invite you to celebrate their wedding in Waikiki.
+          </p>
+          <dl class="invitation-details">
+            <div>
+              <dt>Date</dt>
+              <dd>Wednesday, November 18, 2026</dd>
+            </div>
+            <div>
+              <dt>Time</dt>
+              <dd>5:30 PM</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>Moana Surfrider Resort<br />Honolulu, Hawaii</dd>
+            </div>
+          </dl>
+          <a class="button button--primary" href="#rsvp">RSVP survey coming soon</a>
+        </div>
+      </section>
+
+      <section class="section" id="rsvp">
+        <p class="section-kicker">RSVP</p>
+        <h2>Survey setup</h2>
+        <p class="section-copy section-copy--dark">
+          The RSVP survey will collect guest responses and send them into a spreadsheet for tracking.
+        </p>
+        <ul class="rsvp-list">
+          <li>Guest name</li>
+          <li>Attending or unable to attend</li>
+          <li>Number of guests</li>
+          <li>Guest names</li>
+          <li>Meal restrictions or allergies</li>
+          <li>Email or phone number</li>
+        </ul>
       </section>
 
       <section class="section" id="important-details">
@@ -727,7 +829,7 @@ h2 {
     </nav>
 
     <script>
-const weddingDate = new Date("2026-11-18T18:00:00-10:00");
+const weddingDate = new Date("2026-11-18T17:30:00-10:00");
 const countdownDays = document.querySelector("#countdownDays");
 const countdownHours = document.querySelector("#countdownHours");
 const countdownMinutes = document.querySelector("#countdownMinutes");
