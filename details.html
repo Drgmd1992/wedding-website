@@ -499,6 +499,21 @@ h2 {
   gap: 18px;
 }
 
+.invitation-artwork {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 8px;
+  background: rgba(255, 250, 241, 0.22);
+  box-shadow: var(--shadow);
+}
+
+.invitation-artwork img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .invitation-lede {
   margin: 0;
   color: var(--ink);
@@ -641,7 +656,7 @@ h2 {
   bottom: 0;
   z-index: 10;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   padding: 8px 8px max(8px, env(safe-area-inset-bottom));
   border-top: 1px solid rgba(19, 40, 52, 0.12);
   background: rgba(255, 250, 241, 0.62);
@@ -759,7 +774,6 @@ h2 {
 
     <nav class="mobile-nav" aria-label="Quick navigation">
       <a href="index.html">Home</a>
-      <a href="save-the-date.html">Date</a>
       <a href="invitation.html">Invite</a>
       <a class="is-active" href="details.html">Details</a>
     </nav>
