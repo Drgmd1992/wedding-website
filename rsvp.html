@@ -76,28 +76,19 @@
         line-height: 0.98;
       }
       .section-copy { margin: 0 0 20px; color: var(--muted); line-height: 1.55; }
-      .rsvp-form { display: grid; gap: 14px; }
-      .rsvp-form label, .rsvp-form fieldset { display: grid; gap: 8px; margin: 0; }
-      .rsvp-form fieldset {
-        padding: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.46);
-        border-radius: 8px;
-        background: rgba(255, 250, 241, 0.22);
+      .form-frame-wrap {
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.48);
+        border-radius: 10px;
+        background: rgba(255, 250, 241, 0.78);
+        box-shadow: 0 14px 34px rgba(9, 37, 54, 0.16);
       }
-      .rsvp-form legend, .rsvp-form label > span { color: var(--ocean); font-size: 0.82rem; font-weight: 900; }
-      .rsvp-form input, .rsvp-form textarea {
+      .form-frame {
         width: 100%;
-        border: 1px solid rgba(19, 40, 52, 0.2);
-        border-radius: 8px;
-        padding: 13px 12px;
-        color: var(--ink);
-        background: rgba(255, 250, 241, 0.82);
-        font: inherit;
-        outline: none;
+        height: min(76svh, 760px);
+        display: block;
+        border: 0;
       }
-      .rsvp-form input:focus, .rsvp-form textarea:focus { border-color: var(--reef); box-shadow: 0 0 0 3px rgba(8, 127, 139, 0.18); }
-      .choice-row { grid-template-columns: 22px 1fr; align-items: center; color: var(--ink); font-weight: 750; }
-      .choice-row input { width: 18px; height: 18px; padding: 0; accent-color: var(--reef); }
       .button {
         min-height: 50px;
         display: inline-flex;
@@ -112,8 +103,10 @@
         font: inherit;
         font-weight: 900;
         cursor: pointer;
+        text-decoration: none;
       }
-      .form-note { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.4; }
+      .form-actions { display: grid; gap: 10px; margin-top: 16px; }
+      .form-note { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.4; text-align: center; }
       .mobile-nav {
         position: sticky;
         bottom: 0;
@@ -155,35 +148,18 @@
         <p class="section-kicker">RSVP</p>
         <h1>Reply</h1>
         <p class="section-copy">Please share your response for the wedding of Garrison and Nhuna.</p>
-        <form class="rsvp-form" id="rsvpForm">
-          <label>
-            <span>Your name</span>
-            <input name="guestName" type="text" autocomplete="name" required />
-          </label>
-          <fieldset>
-            <legend>Will you attend?</legend>
-            <label class="choice-row"><input name="attendance" type="radio" value="Joyfully accepts" required /><span>Joyfully accepts</span></label>
-            <label class="choice-row"><input name="attendance" type="radio" value="Regretfully declines" /><span>Regretfully declines</span></label>
-          </fieldset>
-          <label>
-            <span>Number of guests</span>
-            <input name="guestCount" type="number" min="1" max="10" inputmode="numeric" required />
-          </label>
-          <label>
-            <span>Guest names</span>
-            <textarea name="guestNames" rows="4" placeholder="List each guest attending"></textarea>
-          </label>
-          <label>
-            <span>Dietary restrictions or allergies</span>
-            <textarea name="dietaryNotes" rows="4" placeholder="Optional"></textarea>
-          </label>
-          <label>
-            <span>Email or phone number</span>
-            <input name="contact" type="text" autocomplete="email" required />
-          </label>
-          <button class="button" type="submit">Submit RSVP</button>
-          <p class="form-note" id="rsvpNote" role="status"></p>
-        </form>
+        <div class="form-frame-wrap">
+          <iframe
+            class="form-frame"
+            title="Garrison and Nhuna wedding RSVP form"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdbG9m1RpPZTpO4eK_nkEfrW2g6xnRjEUPNATmhWgpolRXWPw/viewform?embedded=true"
+            loading="lazy"
+          >Loading RSVP form...</iframe>
+        </div>
+        <div class="form-actions">
+          <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdbG9m1RpPZTpO4eK_nkEfrW2g6xnRjEUPNATmhWgpolRXWPw/viewform?usp=publish-editor" rel="noreferrer">Open RSVP form</a>
+          <p class="form-note">If the embedded form does not load, open it directly.</p>
+        </div>
       </section>
     </main>
 
@@ -192,25 +168,5 @@
       <a class="is-active" href="invitation.html">Invite</a>
       <a href="details.html">Details</a>
     </nav>
-    <script>
-      const rsvpForm = document.querySelector("#rsvpForm");
-      const rsvpNote = document.querySelector("#rsvpNote");
-      rsvpForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const data = new FormData(rsvpForm);
-        const lines = [
-          "Wedding RSVP",
-          "",
-          `Name: ${data.get("guestName") || ""}`,
-          `Attendance: ${data.get("attendance") || ""}`,
-          `Number of guests: ${data.get("guestCount") || ""}`,
-          `Guest names: ${data.get("guestNames") || ""}`,
-          `Dietary restrictions or allergies: ${data.get("dietaryNotes") || ""}`,
-          `Contact: ${data.get("contact") || ""}`
-        ];
-        rsvpNote.textContent = "Opening your email app to send the RSVP. We can connect this to Google Forms next.";
-        window.location.href = `mailto:?subject=${encodeURIComponent("Wedding RSVP")}&body=${encodeURIComponent(lines.join("\n"))}`;
-      });
-    </script>
   </body>
 </html>
